@@ -41,7 +41,7 @@ function cn(...inputs: ClassValue[]) {
 }
 
 import { jsPDF } from 'jspdf';
-import 'jspdf-autotable';
+import autoTable from 'jspdf-autotable';
 import { format, isAfter, parseISO, differenceInDays } from 'date-fns';
 
 // Types
@@ -662,7 +662,7 @@ export default function App() {
     doc.text(`Period: ${bill.month} ${bill.year}`, 120, 95);
     
     // Table
-    (doc as any).autoTable({
+    autoTable(doc, {
       startY: 105,
       head: [['Description', 'Amount (AED)']],
       body: [
